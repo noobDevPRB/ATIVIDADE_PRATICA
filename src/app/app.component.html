@@ -1,0 +1,42 @@
+<!-- INICIO NAV BAR -->
+<!-- Para o navbar estou utilizando classes padrões do bootstrap sem muitas modificaçõe. -->
+<!-- Utilizei a classe bg-dark para  deixar escuro no navbar e tb navbar-dark para gerar o contraste das letras pois ficam brancas com classe dark-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+  <div class="container-fluid">
+    <span class="navbar-brand " >Atividade Pratica</span>
+  </div>
+</nav>
+<!-- FIM NAV BAR -->
+<!-- Para tabela também utilizei classes padrões adicionei apenas align-items-center junto com justify-content-cetner para centralizar -->
+<div class="container-fluid">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-8">
+      <!-- na tabela coloquei um margin top junto com padding top no maximo permitido pelas classe bootstrap -->
+      <table class="table mt-4 pt-4">
+        <thead>
+          <tr>
+            <!-- colunas solicitadas na atividade  -->
+            <th>Index</th>
+            <th>Nome</th>
+            <th>RU</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ngFor solicitado na atividade com um adicional do index -->
+          <!-- atribui o nome de alunos para cada item do listaAlunos -->
+          <!-- iniciei uma variavel i utilizando let para que seja eliminada apos o laço ngFor depois atribui ao data-index o valor da variavel i -->
+          <tr *ngFor="let alunos of listaAlunos ; let i = index" [attr.data-index]="i">
+           <!-- adicionei +1 no index pois a lista começa no 0 -->
+            <th>{{i+1}}</th>
+            <th>{{alunos.nome}}</th>
+            <th>{{alunos.ru}}</th>
+            <th>{{alunos.curso}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
